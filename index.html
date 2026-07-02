@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Woyengimiebi Tiedor — AI Automation Engineer</title>
+  
+  <!-- Favicon Configuration linking your profile photo -->
+  <link rel="icon" type="image/jpeg" href="profile.jpg">
+  
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -53,9 +57,16 @@
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border-subtle);
-      padding: 1.25rem 0;
+      padding: 1rem 0;
     }
     .nav { display: flex; justify-content: space-between; align-items: center; }
+    
+    /* Header Brand Layout with Avatar image slot */
+    .nav-brand { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .header-avatar {
+      width: 28px; height: 28px; border-radius: 50%; object-fit: cover;
+      border: 1px solid var(--border-standard); background: var(--color-surface);
+    }
     .logo { font-weight: 600; font-size: 1.1rem; letter-spacing: -0.02em; background: linear-gradient(120deg, #fff, var(--color-text-secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     nav a { color: var(--color-text-secondary); text-decoration: none; margin-left: 2rem; font-size: 0.95rem; font-weight: 500; transition: color 0.2s ease; }
     nav a:hover { color: var(--color-text-primary); }
@@ -136,17 +147,17 @@
     
     /* Brand Accent Colors on Hover */
     .skill-card:hover { transform: translateY(-2px); background: rgba(255, 255, 255, 0.03); }
-    .skill-card:nth-child(1):hover { border-color: #ff6d5a; box-shadow: 0 0 20px rgba(255,109,90,0.1); } /* n8n */
+    .skill-card:nth-child(1):hover { border-color: #ff6d5a; box-shadow: 0 0 20px rgba(255,109,90,0.1); }
     .skill-card:nth-child(1):hover .skill-icon-box { color: #ff6d5a; background: rgba(255,109,90,0.05); }
-    .skill-card:nth-child(2):hover { border-color: #f59e0b; box-shadow: 0 0 20px rgba(245,158,11,0.1); } /* JS */
+    .skill-card:nth-child(2):hover { border-color: #f59e0b; box-shadow: 0 0 20px rgba(245,158,11,0.1); }
     .skill-card:nth-child(2):hover .skill-icon-box { color: #f59e0b; background: rgba(245,158,11,0.05); }
-    .skill-card:nth-child(3):hover { border-color: #3b82f6; box-shadow: 0 0 20px rgba(59,130,246,0.1); } /* Gemini */
+    .skill-card:nth-child(3):hover { border-color: #3b82f6; box-shadow: 0 0 20px rgba(59,130,246,0.1); }
     .skill-card:nth-child(3):hover .skill-icon-box { color: #3b82f6; background: rgba(59,130,246,0.05); }
-    .skill-card:nth-child(4):hover { border-color: #10b981; box-shadow: 0 0 20px rgba(16,185,129,0.1); } /* OpenAI */
+    .skill-card:nth-child(4):hover { border-color: #10b981; box-shadow: 0 0 20px rgba(16,185,129,0.1); }
     .skill-card:nth-child(4):hover .skill-icon-box { color: #10b981; background: rgba(16,185,129,0.05); }
-    .skill-card:nth-child(5):hover { border-color: #6366f1; box-shadow: 0 0 20px rgba(99,102,241,0.1); } /* Stripe */
+    .skill-card:nth-child(5):hover { border-color: #6366f1; box-shadow: 0 0 20px rgba(99,102,241,0.1); }
     .skill-card:nth-child(5):hover .skill-icon-box { color: #6366f1; background: rgba(99,102,241,0.05); }
-    .skill-card:nth-child(6):hover { border-color: #22c55e; box-shadow: 0 0 20px rgba(34,197,94,0.1); } /* Node */
+    .skill-card:nth-child(6):hover { border-color: #22c55e; box-shadow: 0 0 20px rgba(34,197,94,0.1); }
     .skill-card:nth-child(6):hover .skill-icon-box { color: #22c55e; background: rgba(34,197,94,0.05); }
 
     /* Projects Section */
@@ -205,7 +216,11 @@
   <header>
     <div class="container">
       <div class="nav">
-        <div class="logo">Woyengimiebi Tiedor</div>
+        <!-- Brand Wrap with Miniature Header Avatar Picture Layer -->
+        <a href="#" class="nav-brand">
+          <img src="profile.jpg" alt="WT Logo" class="header-avatar" onerror="this.style.display='none';">
+          <div class="logo">Woyengimiebi Tiedor</div>
+        </a>
         <nav>
           <a href="#skills">Skills</a>
           <a href="#projects">Projects</a>
@@ -219,7 +234,7 @@
   <main>
     <section class="hero">
       <div class="container">
-        <!-- Enlarged Profile Image Layer (180px) -->
+        <!-- Hero Profile Image Layer (180px) -->
         <div class="profile-wrapper">
           <img src="profile.jpg" alt="Woyengimiebi Tiedor" class="profile-img" onerror="this.style.display='none'; this.parentNode.style.background='var(--color-surface)';">
         </div>
