@@ -61,7 +61,7 @@
     nav a:hover { color: var(--color-text-primary); }
 
     /* Hero Section */
-    .hero { padding: 8rem 0 5rem; text-align: center; position: relative; }
+    .hero { padding: 8rem 0 4rem; text-align: center; position: relative; }
     
     .hero::before {
       content: ""; position: absolute; top: -10%; left: 50%; transform: translateX(-50%);
@@ -69,7 +69,7 @@
       z-index: -1; pointer-events: none;
     }
 
-    /* Profile Image Container - Updated to 180px */
+    /* Profile Image Container (180px) */
     .profile-wrapper {
       position: relative; width: 180px; height: 180px; margin: 0 auto 2rem;
     }
@@ -116,6 +116,39 @@
     .btn-ghost { background: rgba(255,255,255,0.03); border: 1px solid var(--border-standard); color: var(--color-text-secondary); }
     .btn-ghost:hover { background: rgba(255,255,255,0.07); color: var(--color-text-primary); border-color: rgba(255,255,255,0.15); transform: translateY(-1px); }
 
+    /* Automation Core Stack Style */
+    .skills-section { padding: 5rem 0; background: #06070a; border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle); }
+    .skills-section h2 { background: linear-gradient(120deg, #fff, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+    
+    .skill-card {
+      background: rgba(255, 255, 255, 0.01); border: 1px solid var(--border-standard);
+      border-radius: 12px; padding: 1.5rem; display: flex; gap: 1.25rem; align-items: flex-start;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .skill-icon-box {
+      background: var(--color-surface); border: 1px solid var(--border-standard);
+      padding: 0.65rem; border-radius: 8px; display: flex; align-items: center; justify-content: center;
+      transition: all 0.3s ease; color: var(--color-text-secondary);
+    }
+    .skill-info h4 { font-size: 1.1rem; font-weight: 600; color: var(--color-text-primary); margin-bottom: 0.25rem; }
+    .skill-info p { font-size: 0.85rem; color: var(--color-text-tertiary); margin-bottom: 0; line-height: 1.4; }
+    
+    /* Brand Accent Colors on Hover */
+    .skill-card:hover { transform: translateY(-2px); background: rgba(255, 255, 255, 0.03); }
+    .skill-card:nth-child(1):hover { border-color: #ff6d5a; box-shadow: 0 0 20px rgba(255,109,90,0.1); } /* n8n */
+    .skill-card:nth-child(1):hover .skill-icon-box { color: #ff6d5a; background: rgba(255,109,90,0.05); }
+    .skill-card:nth-child(2):hover { border-color: #f59e0b; box-shadow: 0 0 20px rgba(245,158,11,0.1); } /* JS */
+    .skill-card:nth-child(2):hover .skill-icon-box { color: #f59e0b; background: rgba(245,158,11,0.05); }
+    .skill-card:nth-child(3):hover { border-color: #3b82f6; box-shadow: 0 0 20px rgba(59,130,246,0.1); } /* Gemini */
+    .skill-card:nth-child(3):hover .skill-icon-box { color: #3b82f6; background: rgba(59,130,246,0.05); }
+    .skill-card:nth-child(4):hover { border-color: #10b981; box-shadow: 0 0 20px rgba(16,185,129,0.1); } /* OpenAI */
+    .skill-card:nth-child(4):hover .skill-icon-box { color: #10b981; background: rgba(16,185,129,0.05); }
+    .skill-card:nth-child(5):hover { border-color: #6366f1; box-shadow: 0 0 20px rgba(99,102,241,0.1); } /* Stripe */
+    .skill-card:nth-child(5):hover .skill-icon-box { color: #6366f1; background: rgba(99,102,241,0.05); }
+    .skill-card:nth-child(6):hover { border-color: #22c55e; box-shadow: 0 0 20px rgba(34,197,94,0.1); } /* Node */
+    .skill-card:nth-child(6):hover .skill-icon-box { color: #22c55e; background: rgba(34,197,94,0.05); }
+
     /* Projects Section */
     .projects { padding: 6rem 0; background: linear-gradient(180deg, var(--color-bg) 0%, #06070a 100%); }
     .projects h2, .calculator-section h2 { background: linear-gradient(120deg, #fff, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
@@ -134,7 +167,7 @@
     .outcome { color: var(--color-text-secondary); font-size: 0.95rem; line-height: 1.5; flex-grow: 1; }
 
     /* Calculator Widget Section */
-    .calculator-section { padding: 4rem 0 8rem; background: #06070a; text-align: center; }
+    .calculator-section { padding: 6rem 0 8rem; background: #06070a; text-align: center; }
     .calc-card { background: linear-gradient(135deg, var(--color-surface), #090b0f); border: 1px solid var(--border-standard); border-radius: 16px; padding: 3rem; max-width: 44rem; margin: 0 auto; text-align: left; }
     .calc-card h2 { margin-bottom: 0.5rem; display: block; }
     .calc-card p { margin-bottom: 2rem; font-size: 0.95rem; }
@@ -155,11 +188,12 @@
     @media (max-width: 1024px) { .hero h1 { font-size: 3.5rem; } }
     @media (max-width: 768px) {
       .container { padding: 0 1.5rem; }
-      .hero { padding: 5rem 0 4rem; }
+      .hero { padding: 5rem 0 3rem; }
       .hero h1 { font-size: 2.75rem; }
       .hero p { font-size: 1.1rem; }
       .nav { flex-direction: column; gap: 1.25rem; text-align: center; }
       nav a { margin: 0 1rem; font-size: 0.9rem; }
+      .skills-grid { grid-template-columns: 1fr; gap: 1rem; }
       .grid { grid-template-columns: 1fr; gap: 1.5rem; }
       .project-card { padding: 1.75rem; }
       .calc-grid, .calc-result { grid-template-columns: 1fr; flex-direction: column; gap: 1.5rem; }
@@ -173,6 +207,7 @@
       <div class="nav">
         <div class="logo">Woyengimiebi Tiedor</div>
         <nav>
+          <a href="#skills">Skills</a>
           <a href="#projects">Projects</a>
           <a href="#calculator">ROI Calculator</a>
           <a href="mailto:tiedorwoyengimiebi@gmail.com">Contact</a>
@@ -204,6 +239,82 @@
           <a href="https://github.com/Engrmiebi" class="btn btn-primary" target="_blank" rel="noopener">GitHub</a>
           <a href="https://www.linkedin.com/in/miebi-tiedor-60449019b" class="btn btn-ghost" target="_blank" rel="noopener">LinkedIn</a>
           <a href="mailto:tiedorwoyengimiebi@gmail.com" class="btn btn-ghost">Email</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Automation Stack Block -->
+    <section class="skills-section" id="skills">
+      <div class="container">
+        <h2>Core Automation Stack</h2>
+        <div class="skills-grid">
+          
+          <!-- n8n -->
+          <div class="skill-card">
+            <div class="skill-icon-box">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5M8 21H3v-5M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0M21 3L14.5 9.5M3 21l6.5-6.5"/></svg>
+            </div>
+            <div class="skill-info">
+              <h4>n8n Workflows</h4>
+              <p>Advanced node-based logic architectures, multi-tier webhooks, error catching, and custom orchestration pipelines.</p>
+            </div>
+          </div>
+
+          <!-- JavaScript -->
+          <div class="skill-card">
+            <div class="skill-icon-box">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2z"/><path d="M10 16v-6l3 3 3-3v6"/></svg>
+            </div>
+            <div class="skill-info">
+              <h4>JavaScript / ES6</h4>
+              <p>Writing bulletproof data manipulation scripts inside code execution nodes for complex object mapping and custom payload structuring.</p>
+            </div>
+          </div>
+
+          <!-- Gemini AI -->
+          <div class="skill-card">
+            <div class="skill-icon-box">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <div class="skill-info">
+              <h4>Google Gemini Agents</h4>
+              <p>Designing sophisticated multi-role prompting contexts and content generation chains focused on contextual extraction.</p>
+            </div>
+          </div>
+
+          <!-- OpenAI -->
+          <div class="skill-card">
+            <div class="skill-icon-box">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 9 9M12 3v9M12 12l6.36-6.36M12 12H21M12 12l6.36 6.36M12 12v9M12 12l-6.36 6.36M12 12H3M12 12L5.64 5.64"/></svg>
+            </div>
+            <div class="skill-info">
+              <h4>OpenAI Assistants API</h4>
+              <p>Deploying specialized AI personas leveraging Function Calling layers to interact with databases and external endpoints.</p>
+            </div>
+          </div>
+
+          <!-- Stripe -->
+          <div class="skill-card">
+            <div class="skill-icon-box">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2" /><line x1="3" y1="10" x2="21" y2="10" /></svg>
+            </div>
+            <div class="skill-info">
+              <h4>Stripe Automation</h4>
+              <p>Handling checkout event streams, real-time invoice dispatch systems, and programmatic event-driven transactional tracking.</p>
+            </div>
+          </div>
+
+          <!-- Node.js / Express -->
+          <div class="skill-card">
+            <div class="skill-icon-box">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            <div class="skill-info">
+              <h4>Node.js Ecosystem</h4>
+              <p>Constructing lightweight custom proxy servers, middleware logic layers, and authentication systems securely deployed on clouds.</p>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
