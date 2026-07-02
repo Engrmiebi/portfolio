@@ -4,101 +4,175 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Woyengimiebi Tiedor — AI Automation Engineer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      /* Linear Design System */
-      --color-bg: #08090a;
-      --color-panel: #0f1011;
-      --color-surface: #191a1b;
+      /* Modern Linear & Vercel Dark System */
+      --color-bg: #030405;
+      --color-panel: #090a0f;
+      --color-surface: #0e1117;
       --color-text-primary: #f7f8f8;
-      --color-text-secondary: #d0d6e0;
-      --color-text-tertiary: #8a8f98;
-      --color-brand: #5e6ad2;
-      --color-accent: #7170ff;
-      --color-accent-hover: #828fff;
-      --border-subtle: rgba(255,255,255,0.05);
-      --border-standard: rgba(255,255,255,0.08);
+      --color-text-secondary: #b1b8c4;
+      --color-text-tertiary: #6b7280;
+      --color-brand: #4f46e5;
+      --color-accent: #6366f1;
+      --color-accent-glow: rgba(99, 102, 241, 0.15);
+      --border-subtle: rgba(255, 255, 255, 0.04);
+      --border-standard: rgba(255, 255, 255, 0.08);
+      --border-glow: rgba(99, 102, 241, 0.3);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       background: var(--color-bg);
       color: var(--color-text-primary);
       font-family: 'Inter', system-ui, -apple-system, sans-serif;
       font-feature-settings: "cv01" "ss03";
-      line-height: 1.5;
+      line-height: 1.6;
+      overflow-x: hidden;
     }
 
     /* Typography */
-    h1, h2, h3 { font-weight: 510; letter-spacing: -0.02em; }
-    h1 { font-size: 3.5rem; line-height: 1.05; }
-    h2 { font-size: 2.5rem; margin-bottom: 1.5rem; }
-    h3 { font-size: 1.5rem; margin-bottom: 0.75rem; }
-    p { color: var(--color-text-secondary); margin-bottom: 1rem; }
+    h1, h2, h3 { font-weight: 600; letter-spacing: -0.03em; }
+    h1 { font-size: 3.5rem; line-height: 1.1; }
+    h2 { font-size: 2.25rem; margin-bottom: 2rem; position: relative; display: inline-block; }
+    h3 { font-size: 1.35rem; margin-bottom: 0.75rem; letter-spacing: -0.01em; }
+    p { color: var(--color-text-secondary); margin-bottom: 1rem; font-weight: 400; }
 
-    /* Layout */
-    .container { max-width: 72rem; margin: 0 auto; padding: 0 1.5rem; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+    /* Layout Structure */
+    .container { max-width: 68rem; margin: 0 auto; padding: 0 2rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.75rem; }
 
-    /* Header */
+    /* Header Nav */
     header {
       position: sticky; top: 0; z-index: 100;
-      background: rgba(8, 9, 10, 0.8);
-      backdrop-filter: blur(12px);
+      background: rgba(3, 4, 5, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border-subtle);
-      padding: 1rem 0;
+      padding: 1.25rem 0;
     }
     .nav { display: flex; justify-content: space-between; align-items: center; }
-    .logo { font-weight: 590; font-size: 1.125rem; }
-    nav a { color: var(--color-text-secondary); text-decoration: none; margin-left: 2rem; transition: color 0.2s; }
+    .logo { font-weight: 600; font-size: 1.1rem; letter-spacing: -0.02em; background: linear-gradient(120deg, #fff, var(--color-text-secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    nav a { color: var(--color-text-secondary); text-decoration: none; margin-left: 2rem; font-size: 0.95rem; font-weight: 500; transition: color 0.2s ease; }
     nav a:hover { color: var(--color-text-primary); }
 
-    /* Hero */
-    .hero { padding: 8rem 0 4rem; text-align: center; }
-    .hero h1 { font-size: 4rem; margin-bottom: 1.5rem; }
-    .hero p { font-size: 1.25rem; max-width: 600px; margin: 0 auto 2rem; }
-    .contact-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
-    .btn {
-      display: inline-block; padding: 0.75rem 1.5rem; border-radius: 6px;
-      text-decoration: none; font-weight: 500; transition: all 0.2s;
+    /* Hero Section */
+    .hero { padding: 9rem 0 6rem; text-align: center; position: relative; }
+    
+    /* Radial Ambient Background Glows */
+    .hero::before {
+      content: ""; position: absolute; top: -10%; left: 50%; transform: translateX(-50%);
+      width: 600px; height: 350px; background: radial-gradient(circle, rgba(99,102,241,0.12) 0%, rgba(0,0,0,0) 70%);
+      z-index: -1; pointer-events: none;
     }
-    .btn-primary { background: var(--color-brand); color: white; }
-    .btn-primary:hover { background: var(--color-accent); transform: translateY(-1px); }
-    .btn-ghost { background: rgba(255,255,255,0.02); border: 1px solid var(--border-standard); color: var(--color-text-secondary); }
-    .btn-ghost:hover { background: rgba(255,255,255,0.05); color: var(--color-text-primary); }
 
-    /* Projects */
-    .projects { padding: 4rem 0; }
+    /* Profile Image Container */
+    .profile-wrapper {
+      position: relative; width: 120px; height: 120px; margin: 0 auto 2rem;
+    }
+    .profile-img {
+      width: 100%; height: 100%; border-radius: 50%; object-fit: cover;
+      border: 2px solid var(--border-standard);
+      background: var(--color-surface);
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+      transition: border-color 0.3s ease;
+    }
+    .profile-wrapper::after {
+      content: ''; position: absolute; inset: -4px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--color-brand), var(--color-accent));
+      z-index: -1; opacity: 0.4; filter: blur(6px);
+    }
+    .profile-wrapper:hover .profile-img {
+      border-color: var(--color-accent);
+    }
+
+    .hero h1 { font-size: 4.25rem; font-weight: 700; margin-bottom: 1.25rem; background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero p { font-size: 1.25rem; max-width: 620px; margin: 0 auto 2.5rem; color: var(--color-text-secondary); line-height: 1.6; }
+    
+    .contact-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+    
+    /* Buttons */
+    .btn {
+      display: inline-flex; align-items: center; padding: 0.75rem 1.5rem; border-radius: 8px;
+      text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .btn-primary { background: var(--color-brand); color: white; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25); }
+    .btn-primary:hover { background: var(--color-accent); transform: translateY(-1.5px); box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4); }
+    .btn-ghost { background: rgba(255,255,255,0.03); border: 1px solid var(--border-standard); color: var(--color-text-secondary); }
+    .btn-ghost:hover { background: rgba(255,255,255,0.07); color: var(--color-text-primary); border-color: rgba(255,255,255,0.15); transform: translateY(-1px); }
+
+    /* Projects Section */
+    .projects { padding: 6rem 0; background: linear-gradient(180deg, var(--color-bg) 0%, #06070a 100%); }
+    .projects h2 { background: linear-gradient(120deg, #fff, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    
     .project-card {
       background: var(--color-surface);
       border: 1px solid var(--border-standard);
-      border-radius: 8px;
-      padding: 1.5rem;
-      transition: transform 0.2s, box-shadow 0.2s;
+      border-radius: 12px;
+      padding: 2rem;
+      display: flex; flex-direction: column; justify-content: space-between;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+    }
+    .project-card::before {
+      content: ""; position: absolute; inset: 0; border-radius: 12px;
+      padding: 1px; background: linear-gradient(135deg, transparent, transparent);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor; mask-composite: exclude;
+      pointer-events: none; transition: all 0.3s ease;
     }
     .project-card:hover {
-      transform: translateY(-2px);
-      box-shadow: rgba(0,0,0,0.2) 0px 0px 0px 1px, rgba(0,0,0,0.3) 0px 8px 24px;
+      transform: translateY(-4px);
+      background: #11151d;
+      border-color: var(--border-glow);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 20px var(--color-accent-glow);
     }
-    .project-card h3 { color: var(--color-text-primary); }
-    .tech-stack { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0; }
-    .tech { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; background: var(--color-panel); padding: 0.25rem 0.5rem; border-radius: 2px; color: var(--color-text-tertiary); }
-    .outcome { color: var(--color-text-secondary); font-size: 0.875rem; }
+    .project-card:hover::before {
+      background: linear-gradient(135deg, rgba(255,255,255,0.1), var(--color-accent));
+    }
+    .project-card h3 { color: var(--color-text-primary); transition: color 0.2s ease; }
+    .project-card:hover h3 { color: #5c62ec; }
+    
+    .tech-stack { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.5rem 0 1rem; }
+    .tech { 
+      font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 500;
+      background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-subtle);
+      padding: 0.35rem 0.65rem; border-radius: 6px; color: var(--color-text-secondary); 
+    }
+    .project-card:hover .tech {
+      background: rgba(99, 102, 241, 0.06); border-color: rgba(99, 102, 241, 0.2); color: #a5b4fc;
+    }
+    .outcome { color: var(--color-text-secondary); font-size: 0.95rem; line-height: 1.5; flex-grow: 1; }
 
     /* Footer */
     footer {
-      padding: 3rem 0;
+      padding: 4rem 0;
       text-align: center;
       border-top: 1px solid var(--border-subtle);
       color: var(--color-text-tertiary);
+      font-size: 0.9rem;
     }
+    footer p { color: var(--color-text-tertiary); }
 
+    /* Responsive Breakpoints */
+    @media (max-width: 1024px) {
+      .hero h1 { font-size: 3.5rem; }
+    }
     @media (max-width: 768px) {
-      .hero h1 { font-size: 2.5rem; }
-      .hero p { font-size: 1rem; }
-      .nav { flex-direction: column; gap: 1rem; }
-      nav { margin-top: 1rem; }
+      .container { padding: 0 1.5rem; }
+      .hero { padding: 6rem 0 4rem; }
+      .hero h1 { font-size: 2.75rem; }
+      .hero p { font-size: 1.1rem; }
+      .nav { flex-direction: column; gap: 1.25rem; text-align: center; }
+      nav a { margin: 0 1rem; font-size: 0.9rem; }
+      .grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .project-card { padding: 1.75rem; }
     }
   </style>
 </head>
@@ -108,7 +182,7 @@
       <div class="nav">
         <div class="logo">Woyengimiebi Tiedor</div>
         <nav>
-          <a href="https://github.com/Engrmiebi">Projects</a>
+          <a href="#projects">Projects</a>
           <a href="mailto:tiedorwoyengimiebi@gmail.com">Contact</a>
         </nav>
       </div>
@@ -118,47 +192,59 @@
   <main>
     <section class="hero">
       <div class="container">
+        <!-- Profile Image Layer -->
+        <div class="profile-wrapper">
+          <!-- Note: Swap 'profile.jpg' with your image file name (e.g. avatar.png, me.jpg) placed in the same directory -->
+          <img src="profile.jpg" alt="Woyengimiebi Tiedor" class="profile-img" onerror="this.style.display='none'; this.parentNode.style.background='var(--color-surface)';">
+        </div>
+        
         <h1>AI Automation Engineer</h1>
         <p>Building intelligent systems that automate complex workflows, deploy ML models, and scale AI infrastructure.</p>
         <div class="contact-links">
-          <a href="https://github.com/Engrmiebi" class="btn btn-primary">GitHub</a>
-          <a href="https://www.linkedin.com/in/miebi-tiedor-60449019b" class="btn btn-ghost">LinkedIn</a>
+          <a href="https://github.com/Engrmiebi" class="btn btn-primary" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/miebi-tiedor-60449019b" class="btn btn-ghost" target="_blank" rel="noopener">LinkedIn</a>
           <a href="mailto:tiedorwoyengimiebi@gmail.com" class="btn btn-ghost">Email</a>
         </div>
       </div>
     </section>
 
-    <section class="projects">
+    <section class="projects" id="projects">
       <div class="container">
         <h2>Featured Projects</h2>
         <div class="grid">
           <article class="project-card">
-            <h3>Real Estate Lead Automation Workflow</h3>
-            <p class="outcome">Built an automated n8n workflow designed for Real Estate property inquiry, lead automation and follow-up.</p>
+            <div>
+              <h3>Real Estate Lead Automation Workflow</h3>
+              <p class="outcome">Built an automated n8n workflow designed for Real Estate property inquiry, lead automation, and follow-up.</p>
+            </div>
             <div class="tech-stack">
               <span class="tech">n8n</span>
-              <span class="tech">Javascript</span>
+              <span class="tech">JavaScript</span>
               <span class="tech">Google Gemini (AI Agent)</span>
-              <span class="tech">Google Sheet</span>
+              <span class="tech">Google Sheets</span>
               <span class="tech">Gmail</span>
             </div>
           </article>
 
           <article class="project-card">
-            <h3>n8n Chat Bot UI</h3>
-            <p class="outcome">Mobile-responsive AI chatbot interface hosted on Railway. Uses Google Auth to protect private n8n cloud chabots workflows</p>
+            <div>
+              <h3>n8n Chat Bot UI</h3>
+              <p class="outcome">Mobile-responsive AI chatbot interface hosted on Railway. Uses Google Auth to protect private n8n cloud chatbot workflows.</p>
+            </div>
             <div class="tech-stack">
               <span class="tech">HTML5</span>
               <span class="tech">CSS3</span>
               <span class="tech">Node.js</span>
               <span class="tech">Express.js</span>
-               <span class="tech">Google Auth</span>
+              <span class="tech">Google Auth</span>
             </div>
           </article>
 
           <article class="project-card">
-            <h3>School Automation & Management Platform (SAMP)</h3>
-            <p class="outcome">An enterprise-grade, multi-role school operations platform that transforms traditional backend automation tasks into a seamless, modern web experience saving more than 72 hours/week.</p>
+            <div>
+              <h3>School Automation & Management Platform</h3>
+              <p class="outcome">An enterprise-grade, multi-role school operations platform that transforms traditional backend automation tasks into a seamless, modern web experience, saving more than 72 hours/week.</p>
+            </div>
             <div class="tech-stack">
               <span class="tech">n8n</span>
               <span class="tech">Google Workspace API</span>
